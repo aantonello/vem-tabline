@@ -34,7 +34,7 @@ function! s:get_buffer_list(...) abort
     let deleted_buffer_nr = get(a:, 1, 0)
 
     " get condition
-    let only_listed = 'buflisted(v:val) && "quickfix" !=? getbufvar(v:val, "&buftype")'
+    let only_listed = 'buflisted(v:val) && index(["quickfix", "terminal"], getbufvar(v:val, "&buftype")) < 0'
     let not_just_deleted = 'v:val != ' . deleted_buffer_nr
     let condition = only_listed . ' && ' . not_just_deleted
 
