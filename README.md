@@ -22,7 +22,7 @@ Features
 
 * Possibility of reordering the buffers in the tabline.
 
-* Support for Vim's native commands (no re-mappings necessary —there are
+* Support for Vim's native commands (no re-mappings necessary, there are
   key mappings offered by the plugin but they are optional).
 
 * Support to show the buffer number together with its name.
@@ -45,10 +45,12 @@ the buffer number together with its name.
 You need at least Vim 7.4 or Neovim to use Vem Tabline.
 
 Note: If you don't have set it yet, probably you may want to specify:
-```
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.shell}
 set hidden
-```
-in your `vimrc` file so you can switch buffers without having to save their
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In your `vimrc` file so you can switch buffers without having to save their
 changes before.
 
 Moving Buffers in Tabline
