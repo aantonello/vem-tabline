@@ -74,7 +74,7 @@ nmap <leader>l <Plug>vem_move_buffer_right-
 nmap <leader>p <Plug>vem_prev_buffer-
 nmap <leader>n <Plug>vem_next_buffer-
 ```
-Where leader is typically set to `\` in Vim.
+Where leader is typically set to '\' in Vim.
 
 ### Deleting Buffers
 
