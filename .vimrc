@@ -11,6 +11,7 @@ set nocp
 "let g:android_plugin_enabled = v:true         " Enable Android plugin
 "let g:ycm_plugin_enabled = v:true             " Enable YouCompleteMe plugin
 "let g:syntastic_plugin_enabled = v:true       " Enable Syntastic plugin
+"let g:airline_tabline_enabled = 1
 let g:coc_plugin_enabled = v:true             " Enable coc-nvim plugin.
 let g:devicons_enabled = v:true               " Enable WebDevIcons.
 let g:airline_powerline_fonts = 1             " Enable powerline fonts in airline
