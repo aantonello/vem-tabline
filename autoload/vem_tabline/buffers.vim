@@ -145,9 +145,13 @@ function! vem_tabline#buffers#section.generate_labels_without_tagnr() abort
 
         " get discriminator
         if buffer_item.path_index != 0
-            let filename = buffer_item.path_parts[0]
+            " let filename = buffer_item.path_parts[0]
             let dirname = buffer_item.path_parts[buffer_item.path_index]
-            let buffer_item.discriminator = g:vem_tabline_location_symbol . dirname
+            if g:vem_tabline_location_path
+              let buffer_item.discriminator = dirname . g:vem_tabline_location_symbol
+            else
+              let buffer_item.discriminator = g:vem_tabline_location_symbol . dirname
+            endif
         endif
 
     endfor
@@ -432,11 +436,16 @@ function! vem_tabline#buffers#buffer_item.render(modifier) abort
         let label .= self.tagnr
         let label .= '%#VemTabline' . a:modifier . '#'
     endif
-    let label .= self.name
+    if !g:vem_tabline_location_path
+      let label .= self.name
+    endif
     if self.discriminator != ''
         let label .= '%#VemTablineLocation' . a:modifier . '#'
         let label .= self.discriminator
         let label .= '%#VemTabline' . a:modifier . '#'
+    endif
+    if g:vem_tabline_location_path
+      let label .= self.name
     endif
     let label .= self.flags
     let label .= ' '
