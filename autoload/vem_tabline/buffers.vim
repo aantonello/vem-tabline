@@ -386,7 +386,9 @@ function! s:find_first_non_match(list_a, list_b) abort
             return index
         endif
     endfor
-    return index
+
+    " Same buffer shown in two windows?
+    return 0        " index
 
 endfunction
 
