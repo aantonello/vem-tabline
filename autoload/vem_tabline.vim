@@ -56,7 +56,7 @@ function! s:sort_buffers_in_tabpage(buffer_nrs) abort
     " add new buffers
     let new_buffers = filter(a:buffer_nrs, 'index(t:vem_tabline_buffers, v:val)==-1')
 
-    let t:vem_tabline_buffers = still_valid + new_buffers
+    let t:vem_tabline_buffers = sort(still_valid + new_buffers, 'N')
     return t:vem_tabline_buffers
 endfunction
 

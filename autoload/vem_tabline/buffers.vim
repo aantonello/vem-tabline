@@ -146,10 +146,11 @@ function! vem_tabline#buffers#section.generate_labels_without_tagnr() abort
         " get discriminator
         if buffer_item.path_index != 0
             " let filename = buffer_item.path_parts[0]
-            let dirname = buffer_item.path_parts[buffer_item.path_index]
             if g:vem_tabline_location_path
-              let buffer_item.discriminator = dirname . g:vem_tabline_location_symbol
+              let dirname = join(buffer_item.path_parts[1:buffer_item.buffer_item.path_index], '/')
+              let buffer_item.discriminator = dirname . '/'
             else
+              let dirname = buffer_item.path_parts[buffer_item.path_index]
               let buffer_item.discriminator = g:vem_tabline_location_symbol . dirname
             endif
         endif
