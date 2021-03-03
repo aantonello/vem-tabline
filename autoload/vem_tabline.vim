@@ -69,7 +69,7 @@ function! vem_tabline#tabline.update(...) abort
     let listed_buffers = s:get_buffer_list(deleted_buffer_nr)
 
     " buffers in current tabpage
-    let buffers_in_tab = tabpagebuflist()
+    let buffers_in_tab = sort(tabpagebuflist(), 'N')
     let only_listed = 'buflisted(v:val) && index(["quickfix", "terminal"], getbufvar(v:val, "&buftype")) < 0'
     let unique = 'index(buffers_in_tab, v:val, v:key+1)==-1'
     let self.tabpage_buffers = filter(buffers_in_tab, only_listed . ' && ' . unique)
