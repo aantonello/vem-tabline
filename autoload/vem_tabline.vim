@@ -80,8 +80,14 @@ function! vem_tabline#tabline.update(...) abort
     let self.tabpage_windows = filter(range(1, self.total_window_num), condition)
 
     " check if multiwindow mode
-    let self.is_multiwindow = len(self.tabpage_windows) > 1
-    let self.multiwindow_mode = self.is_multiwindow && g:vem_tabline_multiwindow_mode
+    let self.is_multiwindow = 0
+    if g:vem_tabline_multiwindow_mode == 1
+      let self.is_multiwindow = len(self.tabpage_windows) > 1
+    elseif g:vem_tabline_multiwindow_mode == 2
+      let self.is_multiwindow = tabpagenr('$') > 1
+    endif
+
+    let self.multiwindow_mode = self.is_multiwindow
 
     " list of buffers to display and extra buffers (non-displayed ones)
     if self.multiwindow_mode

@@ -174,11 +174,14 @@ of the current tabpage:
 * In tabs with more than one window, only the buffers that are being displayed
   are listed.
 
+* In multiple tabs workspaces, only buffers in the current tabpage are listed.
+
 This allows you to have a cleaner list of buffers depending on the tab that is
 active and goes well with Vim's philosophy of using tabs as workspaces to
 arrange windows in different configurations.
 
-To enable this mode, set `g:vem_tabline_multiwindow_mode` to 1 in your `vimrc`.
+To set the different modes use `g:vem_tabline_multiwindow_mode` in your `vimrc`.
+
 See [Configuration](#configuration) for more information.
 
 
@@ -205,10 +208,13 @@ are:
 
 `g:vem_tabline_multiwindow_mode`: boolean (default: 0)
 
-    When this mode is active, for layouts of multiple windows in the tabpage,
-    only the buffers that are displayed in those windows are listed in the
-    tabline. That only applies to multi-window layouts, if there is only one
-    window in the tabpage, all buffers are listed.
+    When this variable is set to 1, for layouts with multiple windows in the
+    current tabpage, only the buffers that are displayed in windows are listed.
+    That only applies to multi-window layouts, if there is only one window in
+    the tabpage, all buffers are listed.
+
+    When setting this variable to 2, for layouts with multiple tabpages, only
+    buffers pertained to the current tab page are listed in tabline.
 
     If this mode is set to 0, all buffers are listed in the tabline regardless
     of the window layout.
