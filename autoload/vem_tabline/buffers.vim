@@ -147,7 +147,7 @@ function! vem_tabline#buffers#section.generate_labels_without_tagnr() abort
         if buffer_item.path_index != 0
             " let filename = buffer_item.path_parts[0]
             if g:vem_tabline_location_path
-              let dirname = join(buffer_item.path_parts[1:buffer_item.path_index], '/')
+              let dirname = join(reverse(copy(buffer_item.path_parts[1:buffer_item.path_index])), '/')
               let buffer_item.discriminator = dirname . '/'
             else
               let dirname = buffer_item.path_parts[buffer_item.path_index]
